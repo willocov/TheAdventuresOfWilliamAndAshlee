@@ -13,32 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Resource Files\Content">
-      <UniqueIdentifier>{bb5da301-fd94-4547-8e41-e26ed526e78e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\Content\Tilesets">
-      <UniqueIdentifier>{e7e7de30-e636-4818-a17a-810a79d583d5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\Content\Audio">
-      <UniqueIdentifier>{821533ba-c6e1-4d8f-9424-79407fd85056}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\Content\Audio\Music">
-      <UniqueIdentifier>{9f109aa5-43fd-440e-93e9-1265713bfe97}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\Content\Audio\Sounds">
-      <UniqueIdentifier>{31935044-3aeb-4476-8c6f-102807414e4b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\Content\Maps">
-      <UniqueIdentifier>{d601f4d5-8563-43f2-82d9-44a7a8a00f4d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ToDoList.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="Text.txt">
-      <Filter>Resource Files\Content</Filter>
-    </Text>
+    <Text Include="Content\Audio\Music\TestFile.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
