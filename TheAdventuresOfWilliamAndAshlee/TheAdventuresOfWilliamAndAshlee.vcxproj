@@ -151,6 +151,7 @@
   <ItemGroup>
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="InputController.cpp" />
+    <ClCompile Include="LevelController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
@@ -158,6 +159,7 @@
   <ItemGroup>
     <ClInclude Include="GameController.h" />
     <ClInclude Include="InputController.h" />
+    <ClInclude Include="LevelController.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="tinyxml2.h" />

@@ -4,28 +4,62 @@ void GameController::StartGame() {
 	//Launch the Window
 	sf::RenderWindow window(sf::VideoMode(600, 800), "SFML works!");  //Sample window test
 	window.setFramerateLimit(60);
-    window.setKeyRepeatEnabled(false);
 
     //Load Main Menu / Title Screen
-    MainMenu mainMenu;
-    mainMenu.Load();
+    //MainMenu mainMenu;
+    //mainMenu.Load();
 	
     //Game Loop
     while (window.isOpen())
     {
+        //Check if a level is currently loaded
+        if (!IsALevelLoaded()) {
+            //No level is loaded, get next level and load
+            LoadLevel();
+        }
+
         //Check for keyboard input on main menu
-        input.checkInput_MainMenu(&mainMenu);
+        CheckAndHandleInput();
 
+        //Clears the previous window frame
+        window.clear(); 
 
+        //Draw everything
+        DrawEverything(&window);
 
-        window.clear();
-        //window.draw(shape); //Part of the shape drawing example from above
-        //window.display();
-
-
-
-
+        //Display the new frame
         window.display();
-
     }
 }
+
+bool GameController::IsALevelLoaded() {
+    //Placeholder function, add code later
+    
+    return true;
+}
+
+void GameController::LoadLevel() {
+    //Placeholder function, add code later
+    return;
+}
+
+int GameController::GetCurrentLevelID() {
+    //Placeholder function, add code later
+    return 0;
+}
+
+int GameController::GetNextLevelID() {
+    //Placeholder function, add code later
+    return 1;
+}
+
+void GameController::CheckAndHandleInput() {
+    //Placeholder function, add code later
+    return;
+}
+
+void GameController::DrawEverything(sf::RenderWindow* window) {
+    //Placeholder function, add code later
+    return;
+}
+
