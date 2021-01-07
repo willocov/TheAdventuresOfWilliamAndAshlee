@@ -5,6 +5,9 @@
 #include <string>
 #include <iostream>
 #include <chrono>
+
+#include "InputController.h"
+
 using namespace tinyxml2;
 //tileset structure
 struct Tileset {
@@ -43,6 +46,7 @@ int split(const std::string& txt, std::vector<std::string>& strs, char ch) {
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(600, 800), "SFML works!");  //Sample window test
+    window.setFramerateLimit(60);
 
     //std::vector<sf::VideoMode> i = sf::VideoMode::getFullscreenModes(); //Used to get most compatible fullscreen mode (Necessary for fullscreen mode
     //sf::RenderWindow window(i.front(), "SFML WORKS!", sf::Style::Fullscreen);   //Creates a full screen window
@@ -140,7 +144,7 @@ int main()
     sprite2.setScale(sf::Vector2f(10.0f, 10.0f));
     sprite2.setPosition(160.0f, 0.0f);
 
-
+    InputController IC;
 
     //Game loop while window is open
     while (window.isOpen())
@@ -151,6 +155,8 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+
+        IC.checkInput();
 
         window.clear();
         //window.draw(shape); //Part of the shape drawing example from above
