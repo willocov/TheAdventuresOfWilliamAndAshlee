@@ -1,5 +1,5 @@
 # The Adventures Of William And Ashlee
-Project Created by William Covington
+Project Created by William Covington and Ashlee Bishop
 
 A simple 2D game using SFML.
 
