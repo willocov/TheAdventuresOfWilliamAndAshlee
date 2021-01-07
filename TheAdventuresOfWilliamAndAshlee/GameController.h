@@ -21,6 +21,7 @@ private:
 	int currentLevelID;
 	vector<int> levelIDs;
 
+	MainMenu mainMenu;
 	LevelController level;
 };
 

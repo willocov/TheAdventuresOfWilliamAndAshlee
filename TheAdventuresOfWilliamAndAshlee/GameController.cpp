@@ -54,7 +54,17 @@ int GameController::GetNextLevelID() {
 }
 
 void GameController::CheckAndHandleInput() {
-    //Placeholder function, add code later
+    //Input Handling during gameplay
+    if (currentLevelID != 0) {
+        input.checkInput();
+    }
+    //Input handling on main menu screen
+    else {
+        //Main Menu / Title Screen is Active
+        input.checkInput_MainMenu(&mainMenu);
+    }
+
+
     return;
 }
 
