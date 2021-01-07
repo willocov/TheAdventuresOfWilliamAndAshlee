@@ -18,3 +18,20 @@ void InputController::checkInput() {
         cout << "Button Pressed: D" << endl;
     }
 }
+
+void InputController::checkInput_MainMenu(MainMenu *mainMenu) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+    {
+        cout << "Button Pressed: W" << endl;
+        mainMenu->HandleKeyPress_W();
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    {
+        cout << "Button Pressed: S" << endl;
+        mainMenu->HandleKeyPress_S();
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
+        cout << "Button Pressed: ENTER" << endl;
+        mainMenu->HandleKeyPress_ENTER();
+    }
+}
