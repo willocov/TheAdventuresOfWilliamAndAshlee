@@ -7,6 +7,7 @@
 class GameController
 {
 public:
+	GameController();
 	void StartGame();
 	bool IsALevelLoaded();
 	void LoadLevel();
@@ -20,6 +21,8 @@ private:
 	InputController input;
 	int currentLevelID;
 	vector<int> levelIDs;
+
+	bool isALevelLoaded;	//Temporary Placeholder bool
 
 	MainMenu mainMenu;
 	LevelController level;

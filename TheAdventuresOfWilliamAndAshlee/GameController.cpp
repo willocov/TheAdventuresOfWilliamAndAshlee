@@ -1,14 +1,16 @@
 #include "GameController.h"
 
+GameController::GameController() {
+    currentLevelID = 0; //0 = Main Menu ID
+    isALevelLoaded = false;
+    
+}
+
 void GameController::StartGame() {
 	//Launch the Window
 	sf::RenderWindow window(sf::VideoMode(600, 800), "SFML works!");  //Sample window test
 	window.setFramerateLimit(60);
 
-    //Load Main Menu / Title Screen
-    //MainMenu mainMenu;
-    //mainMenu.Load();
-	
     //Game Loop
     while (window.isOpen())
     {
@@ -34,18 +36,21 @@ void GameController::StartGame() {
 
 bool GameController::IsALevelLoaded() {
     //Placeholder function, add code later
-    
-    return true;
+    if (isALevelLoaded == false) {
+        isALevelLoaded = true;
+        return false;
+    }
+    return isALevelLoaded;
 }
 
 void GameController::LoadLevel() {
     //Placeholder function, add code later
+    level.LoadLevel();
     return;
 }
 
 int GameController::GetCurrentLevelID() {
-    //Placeholder function, add code later
-    return 0;
+    return currentLevelID;
 }
 
 int GameController::GetNextLevelID() {
