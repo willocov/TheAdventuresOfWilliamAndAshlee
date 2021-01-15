@@ -39,6 +39,9 @@
     <ClCompile Include="LevelController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tileset.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tinyxml2.h">
@@ -59,6 +62,9 @@
     <ClInclude Include="LevelController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Tileset.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Content\Audio\Music\TestWav.wav">
@@ -68,6 +74,8 @@
   <ItemGroup>
     <None Include="Content\Maps\Test.tsx" />
     <None Include="Content\Maps\TestMap.tmx" />
+    <None Include="Content\Maps\Terrains_TILESET_B-C-D-E.tsx" />
+    <None Include="Content\Maps\TestMap2.tmx" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Tilesets\Beach.png">

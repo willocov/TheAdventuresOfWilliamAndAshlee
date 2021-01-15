@@ -11,17 +11,17 @@
 
 using namespace tinyxml2;
 //tileset structure
-struct Tileset {
-    sf::Texture Texture;
-    int FirstGid;
-    Tileset() {
-        this->FirstGid = -1;
-    }
-    Tileset(sf::Texture texture, int firstGid) {
-        this->Texture = texture;
-        this->FirstGid = firstGid;
-    }
-};
+//struct Tileset {
+//    sf::Texture Texture;
+//    int FirstGid;
+//    Tileset() {
+//        this->FirstGid = -1;
+//    }
+//    Tileset(sf::Texture texture, int firstGid) {
+//        this->Texture = texture;
+//        this->FirstGid = firstGid;
+//    }
+//};
 
 int split(const std::string& txt, std::vector<std::string>& strs, char ch) {
     int pos = txt.find(ch);	//Searches for the first instance of a character

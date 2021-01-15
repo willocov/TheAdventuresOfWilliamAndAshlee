@@ -154,6 +154,7 @@
     <ClCompile Include="LevelController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Tileset.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -162,14 +163,17 @@
     <ClInclude Include="LevelController.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Settings.h" />
+    <ClInclude Include="Tileset.h" />
     <ClInclude Include="tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Content\Audio\Music\TestWav.wav" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\Maps\Terrains_TILESET_B-C-D-E.tsx" />
     <None Include="Content\Maps\Test.tsx" />
     <None Include="Content\Maps\TestMap.tmx" />
+    <None Include="Content\Maps\TestMap2.tmx" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Tilesets\Beach.png" />

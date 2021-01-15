@@ -3,6 +3,8 @@
 #include "tinyxml2.h"
 #include <sstream>
 #include<SFML/Graphics.hpp>
+#include "Tileset.h"
+#include <iostream>
 
 using namespace tinyxml2;	//Needed for tinyxml2 file parsing for maps
 
@@ -11,7 +13,8 @@ class LevelController
 public:
 	LevelController();
 	void LoadLevel();
-private:
+	int split(const std::string& txt, std::vector<std::string>& strs, char ch);
+//private:
 	//Variables related to XML file data
 	int mapWidth;
 	int mapHeight;
@@ -19,8 +22,12 @@ private:
 	int tileWidth;
 	int tileHeight;
 
+
 	int firstGid;
 	const char* source;
 
+	std::vector<std::string> strings;
+	std::vector<sf::Texture> textures;
+	Tileset tileset;
 };
 

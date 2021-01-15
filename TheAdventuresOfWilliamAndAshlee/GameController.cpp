@@ -8,7 +8,7 @@ GameController::GameController() {
 
 void GameController::StartGame() {
 	//Launch the Window
-	sf::RenderWindow window(sf::VideoMode(600, 800), "SFML works!");  //Sample window test
+	sf::RenderWindow window(sf::VideoMode(1200, 1600), "SFML works!");  //Sample window test
 	window.setFramerateLimit(60);
 
     //Game Loop
@@ -75,6 +75,26 @@ void GameController::CheckAndHandleInput() {
 
 void GameController::DrawEverything(sf::RenderWindow* window) {
     //Placeholder function, add code later
+    int tileCount;  //Number of tiles per map layer
+    tileCount = level.strings.size();
+
+    //Map dimensions = 20 x 20
+    int counter = 0;
+    for (int y = 0; y < level.mapHeight; y++) {
+        for (int x = 0; x < level.mapWidth; x++) {
+            sf::Sprite tempSprite;
+            int t = std::stoi(level.strings[counter++]);
+            int test = level.textures.size();
+            tempSprite.setTexture(level.textures[t - 1]);
+            tempSprite.setPosition(x * 16, y * 16);
+            tempSprite.setScale(sf::Vector2f(10.0f, 10.0f));
+
+            cout << "Drawing Tile: " << t << endl;
+            window->draw(tempSprite);
+        }
+
+    }
+
     return;
 }
 
