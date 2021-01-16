@@ -105,16 +105,13 @@ void LevelController::LoadLevel() {
 	int leftPos = 0, topPos = 0;
 							//Loop by row
 	for (int y = 0; y < tileset.imageHeight; y+=tileHeight) {
-		//Loop by 
+	//	//Loop by 
 		for (int x = 0; x < tileset.imageWidth; x+=tileWidth) {
-			sf::Texture tempTexture;
-			tempTexture.loadFromFile("Content/Tilesets/SERENE_VILLAGE_REVAMPED/RPG_MAKER_MV/Terrains_TILESET_B-C-D-E.png", sf::IntRect(x, y, tileWidth, tileHeight));
-			textures.push_back(tempTexture);
-			leftPos += tileWidth;
-		}
+			TileCoordinate tempTile(x, y, tileWidth, tileHeight);
+			coordinates.push_back(tempTile);
 
-		//Reset left position, and move top position down a row
-		//leftPos = 0;
-		//topPos += tileHeight;
+		}
 	}
+	TestTexture.loadFromFile("Content/Tilesets/SERENE_VILLAGE_REVAMPED/RPG_MAKER_MV/Terrains_TILESET_B-C-D-E.png");
+
 }

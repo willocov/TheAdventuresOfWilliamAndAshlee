@@ -8,6 +8,11 @@
 
 using namespace tinyxml2;	//Needed for tinyxml2 file parsing for maps
 
+struct TileCoordinate {
+	TileCoordinate(int _x, int _y, int _tW, int  _tH) { x = _x; y = _y; tileWidth = _tW; tileHeight = _tH; }
+	int x, y, tileWidth, tileHeight;
+};
+
 class LevelController
 {
 public:
@@ -29,5 +34,9 @@ public:
 	std::vector<std::string> strings;
 	std::vector<sf::Texture> textures;
 	Tileset tileset;
+	
+	sf::Texture TestTexture;
+	std::vector<TileCoordinate> coordinates;
+
 };
 

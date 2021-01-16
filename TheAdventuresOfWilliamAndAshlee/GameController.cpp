@@ -78,23 +78,21 @@ void GameController::DrawEverything(sf::RenderWindow* window) {
     int tileCount;  //Number of tiles per map layer
     tileCount = level.strings.size();
 
-    //Map dimensions = 20 x 20
     int counter = 0;
     for (int y = 0; y < level.mapHeight; y++) {
         for (int x = 0; x < level.mapWidth; x++) {
             sf::Sprite tempSprite;
-            int t = std::stoi(level.strings[counter++]);
-            int test = level.textures.size();
-            tempSprite.setTexture(level.textures[t - 1]);
+            int t = std::stoi(level.strings[counter]);
+            tempSprite.setTexture(level.TestTexture);
+            tempSprite.setTextureRect(sf::IntRect(level.coordinates[t-1].x, level.coordinates[t-1].y, level.coordinates[t-1].tileWidth, level.coordinates[t-1].tileHeight));
             tempSprite.setPosition(x * 16, y * 16);
-            tempSprite.setScale(sf::Vector2f(10.0f, 10.0f));
+            //tempSprite.setScale(sf::Vector2f(10.0f, 10.0f));
 
-            cout << "Drawing Tile: " << t << endl;
+            //cout << "Drawing Tile: " << t << endl;
             window->draw(tempSprite);
+            counter++;
         }
-
     }
-
     return;
 }
 
