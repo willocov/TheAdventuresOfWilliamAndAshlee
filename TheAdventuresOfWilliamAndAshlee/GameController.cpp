@@ -103,8 +103,9 @@ void GameController::DrawEverything(sf::RenderWindow* window) {
                     }
                     tempSprite.setTexture(tempTexture);
                     tempSprite.setTextureRect(sf::IntRect(level.coordinates[tileGid - 1].x, level.coordinates[tileGid - 1].y, level.coordinates[tileGid - 1].tileWidth, level.coordinates[tileGid - 1].tileHeight));
-                    tempSprite.setPosition(x * 16, y * 16);
-                    //tempSprite.setScale(sf::Vector2f(10.0f, 10.0f));
+                    tempSprite.setPosition(x * 16 * GLOBALS::SPRITE_SCALE, y * 16 * GLOBALS::SPRITE_SCALE);
+                    
+                    tempSprite.setScale(sf::Vector2f(GLOBALS::SPRITE_SCALE, GLOBALS::SPRITE_SCALE));
 
                     //cout << "Drawing Tile: " << tileGid << endl;
                     window->draw(tempSprite);

@@ -5,6 +5,7 @@
 #include<SFML/Graphics.hpp>
 #include "Tileset.h"
 #include <iostream>
+#include "Globals.h"
 
 using namespace tinyxml2;	//Needed for tinyxml2 file parsing for maps
 

@@ -4,6 +4,7 @@
 #include "InputController.h"
 #include "MainMenu.h"
 #include "LevelController.h"
+#include "Globals.h"
 class GameController
 {
 public:
