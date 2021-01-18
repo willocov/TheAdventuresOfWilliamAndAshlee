@@ -13,12 +13,17 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Map Stuff">
+      <UniqueIdentifier>{f8269909-1570-4883-8a0d-b1d3b6a7d3b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ToDoList.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="Content\Audio\Music\TestFile.txt" />
+    <Text Include="Content\Audio\Music\TestFile.txt">
+      <Filter>Map Stuff</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -72,10 +77,24 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\Maps\Test.tsx" />
-    <None Include="Content\Maps\TestMap.tmx" />
-    <None Include="Content\Maps\Terrains_TILESET_B-C-D-E.tsx" />
-    <None Include="Content\Maps\TestMap2.tmx" />
+    <None Include="Content\Maps\2LayerTest.tmx">
+      <Filter>Map Stuff</Filter>
+    </None>
+    <None Include="Content\Maps\Outside_Stuff_TILESET_B-C-D-E.tsx">
+      <Filter>Map Stuff</Filter>
+    </None>
+    <None Include="Content\Maps\Terrains_TILESET_B-C-D-E.tsx">
+      <Filter>Map Stuff</Filter>
+    </None>
+    <None Include="Content\Maps\Test.tsx">
+      <Filter>Map Stuff</Filter>
+    </None>
+    <None Include="Content\Maps\TestMap.tmx">
+      <Filter>Map Stuff</Filter>
+    </None>
+    <None Include="Content\Maps\TestMap2.tmx">
+      <Filter>Map Stuff</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Tilesets\Beach.png">

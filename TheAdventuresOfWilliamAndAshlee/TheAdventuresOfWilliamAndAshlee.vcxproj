@@ -170,6 +170,8 @@
     <Media Include="Content\Audio\Music\TestWav.wav" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\Maps\2LayerTest.tmx" />
+    <None Include="Content\Maps\Outside_Stuff_TILESET_B-C-D-E.tsx" />
     <None Include="Content\Maps\Terrains_TILESET_B-C-D-E.tsx" />
     <None Include="Content\Maps\Test.tsx" />
     <None Include="Content\Maps\TestMap.tmx" />

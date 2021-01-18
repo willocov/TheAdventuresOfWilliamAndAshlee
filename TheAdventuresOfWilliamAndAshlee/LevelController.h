@@ -19,6 +19,8 @@ public:
 	LevelController();
 	void LoadLevel();
 	int split(const std::string& txt, std::vector<std::string>& strs, char ch);
+	string formatSourceString(string source);
+	int GetLastGid(int firstGid, int tileCount);
 //private:
 	//Variables related to XML file data
 	int mapWidth;
@@ -35,8 +37,11 @@ public:
 	std::vector<sf::Texture> textures;
 	Tileset tileset;
 	
-	sf::Texture TestTexture;
+	//sf::Texture TestTexture;
 	std::vector<TileCoordinate> coordinates;
+	std::vector<Tileset> tilesets;
 
+	std::vector<std::string> tileIDs;
+	std::vector<std::vector<std::string>> layers;
 };
 

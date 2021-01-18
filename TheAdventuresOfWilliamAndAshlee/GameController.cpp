@@ -9,8 +9,12 @@ GameController::GameController() {
 void GameController::StartGame() {
 	//Launch the Window
 	sf::RenderWindow window(sf::VideoMode(1200, 1600), "SFML works!");  //Sample window test
-	window.setFramerateLimit(60);
+    //std::vector<sf::VideoMode> i = sf::VideoMode::getFullscreenModes(); //Used to get most compatible fullscreen mode (Necessary for fullscreen mode
+    //sf::RenderWindow window(i.front(), "SFML WORKS!", sf::Style::Fullscreen);   //Creates a full screen window
 
+
+    window.setFramerateLimit(60);
+    
     //Game Loop
     while (window.isOpen())
     {
@@ -78,19 +82,35 @@ void GameController::DrawEverything(sf::RenderWindow* window) {
     int tileCount;  //Number of tiles per map layer
     tileCount = level.strings.size();
 
-    int counter = 0;
-    for (int y = 0; y < level.mapHeight; y++) {
-        for (int x = 0; x < level.mapWidth; x++) {
-            sf::Sprite tempSprite;
-            int t = std::stoi(level.strings[counter]);
-            tempSprite.setTexture(level.TestTexture);
-            tempSprite.setTextureRect(sf::IntRect(level.coordinates[t-1].x, level.coordinates[t-1].y, level.coordinates[t-1].tileWidth, level.coordinates[t-1].tileHeight));
-            tempSprite.setPosition(x * 16, y * 16);
-            //tempSprite.setScale(sf::Vector2f(10.0f, 10.0f));
+    //int counter = 0;
+    for (int layerCounter = 0; layerCounter < level.layers.size(); layerCounter++) {
+        std::vector<std::string> currentLayer = level.layers[layerCounter];
+        int counter = 0;
+        cout << "DRAWING LAYER " << layerCounter + 1 << endl;
+        for (int y = 0; y < level.mapHeight; y++) {
+            for (int x = 0; x < level.mapWidth; x++) {
+                int tileGid = std::stoi(currentLayer[counter]);
+               
+                if (tileGid != 0) {
+                    sf::Sprite tempSprite;
 
-            //cout << "Drawing Tile: " << t << endl;
-            window->draw(tempSprite);
-            counter++;
+                    //Determine which texture to use
+                    sf::Texture tempTexture;
+                    for (int i = 0; i < level.textures.size(); i++) {
+                        if (tileGid >= level.tilesets[i].firstGid && tileGid <= level.tilesets[i].lastGid) {
+                            tempTexture = level.textures[i];
+                        }
+                    }
+                    tempSprite.setTexture(tempTexture);
+                    tempSprite.setTextureRect(sf::IntRect(level.coordinates[tileGid - 1].x, level.coordinates[tileGid - 1].y, level.coordinates[tileGid - 1].tileWidth, level.coordinates[tileGid - 1].tileHeight));
+                    tempSprite.setPosition(x * 16, y * 16);
+                    //tempSprite.setScale(sf::Vector2f(10.0f, 10.0f));
+
+                    cout << "Drawing Tile: " << tileGid << endl;
+                    window->draw(tempSprite);
+                }
+                counter++;
+            }
         }
     }
     return;

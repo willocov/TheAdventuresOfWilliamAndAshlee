@@ -1,4 +1,4 @@
 TO DO LIST:
 
-1. CONFIGURE SOLUTION FOR SFML LIBRARY
-2. IMPORT TINYXML2 INTO SOLUTION
+1. Scale Map to window size
+2. Add multi-layer functionality to maps
