@@ -86,7 +86,7 @@ void GameController::DrawEverything(sf::RenderWindow* window) {
     for (int layerCounter = 0; layerCounter < level.layers.size(); layerCounter++) {
         std::vector<std::string> currentLayer = level.layers[layerCounter];
         int counter = 0;
-        cout << "DRAWING LAYER " << layerCounter + 1 << endl;
+        //cout << "DRAWING LAYER " << layerCounter + 1 << endl;
         for (int y = 0; y < level.mapHeight; y++) {
             for (int x = 0; x < level.mapWidth; x++) {
                 int tileGid = std::stoi(currentLayer[counter]);
@@ -106,7 +106,7 @@ void GameController::DrawEverything(sf::RenderWindow* window) {
                     tempSprite.setPosition(x * 16, y * 16);
                     //tempSprite.setScale(sf::Vector2f(10.0f, 10.0f));
 
-                    cout << "Drawing Tile: " << tileGid << endl;
+                    //cout << "Drawing Tile: " << tileGid << endl;
                     window->draw(tempSprite);
                 }
                 counter++;

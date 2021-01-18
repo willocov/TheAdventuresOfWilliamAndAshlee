@@ -29,7 +29,7 @@ void LevelController::LoadLevel() {
 	//Open filestream to map file
 	XMLDocument doc;
 	std::stringstream ss;
-	ss << "Content/Maps/2LayerTest.tmx";
+	ss << "Content/Maps/MultiLayerTest.tmx";
 	doc.LoadFile(ss.str().c_str());
 
 	//Get map and tile dimensions
@@ -55,8 +55,6 @@ void LevelController::LoadLevel() {
 			std::stringstream tsxStream;
 
 			string source = formatSourceString(ts.tsxSource);
-			//tsxStream << ts.tsxSource;
-			//tsxStream << "Content/Maps/Terrains_TILESET_B-C-D-E.tsx";
 			tsxStream << source;
 			tsxFile.LoadFile(tsxStream.str().c_str());
 
@@ -75,6 +73,11 @@ void LevelController::LoadLevel() {
 
 				ts.lastGid = GetLastGid(ts.firstGid, ts.tileCount);
 
+				string imageSource = formatSourceString(ts.imageSource);
+				sf::Texture tempTexture;
+				tempTexture.loadFromFile(imageSource);
+				
+				textures.push_back(tempTexture);
 				tilesets.push_back(ts);
 
 			}
@@ -108,37 +111,15 @@ void LevelController::LoadLevel() {
 		}
 	}
 	
-	//Load the textures
-	int tileIDCounter = 1;	//First ID starts at 1 because 0 = "No Tile"
-	int leftPos = 0, topPos = 0;
-							//Loop by row
-	//for (int y = 0; y < tileset.imageHeight; y+=tileHeight) {
-	////	//Loop by 
-	//	for (int x = 0; x < tileset.imageWidth; x+=tileWidth) {
-	//		TileCoordinate tempTile(x, y, tileWidth, tileHeight);
-	//		coordinates.push_back(tempTile);
-
-	//	}
-	//}
-	for (int i = 0; i < 2; i++) {
-		for (int y = 0; y < 768; y += 16) {
-			//	//Loop by 
-			for (int x = 0; x < 768; x += 16) {
+	//Get tile coordinates for map
+	for (int tilesetCounter = 0; tilesetCounter < tilesets.size(); tilesetCounter++) {
+		for (int y = 0; y < tilesets[tilesetCounter].imageHeight; y += tilesets[tilesetCounter].tileHeight) {
+			for (int x = 0; x < tilesets[tilesetCounter].imageWidth; x += tilesets[tilesetCounter].tileWidth) {
 				TileCoordinate tempTile(x, y, tileWidth, tileHeight);
 				coordinates.push_back(tempTile);
-
 			}
 		}
 	}
-	//TestTexture.loadFromFile("Content/Tilesets/SERENE_VILLAGE_REVAMPED/RPG_MAKER_MV/Terrains_TILESET_B-C-D-E.png");
-
-	sf::Texture texture1, texture2;
-	texture1.loadFromFile("Content/Tilesets/SERENE_VILLAGE_REVAMPED/RPG_MAKER_MV/Terrains_TILESET_B-C-D-E.png");
-	texture2.loadFromFile("Content/Tilesets/SERENE_VILLAGE_REVAMPED/RPG_MAKER_MV/Outside_Stuff_TILESET_B-C-D-E.png");
-
-	textures.push_back(texture1);
-	textures.push_back(texture2);
-
 }
 
 string LevelController::formatSourceString(string source) {
@@ -146,8 +127,7 @@ string LevelController::formatSourceString(string source) {
 	//check if source begins with ".."
 	if (result.at(0) == '.') {
 		//erase 2 leading '.'
-		result.erase(result[0]);
-		result.erase(result[0]);
+		result = result.substr(2, result.length() - 2);
 
 		//Add 'Content' to begining of source string
 		result = "Content" + result;

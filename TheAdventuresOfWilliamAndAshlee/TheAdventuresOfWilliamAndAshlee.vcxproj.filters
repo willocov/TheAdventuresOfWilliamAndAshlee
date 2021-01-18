@@ -95,6 +95,7 @@
     <None Include="Content\Maps\TestMap2.tmx">
       <Filter>Map Stuff</Filter>
     </None>
+    <None Include="Content\Maps\MultiLayerTest.tmx" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Tilesets\Beach.png">
