@@ -154,6 +154,7 @@
     <ClCompile Include="LevelController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Tileset.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
   </ItemGroup>
@@ -163,6 +164,7 @@
     <ClInclude Include="InputController.h" />
     <ClInclude Include="LevelController.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="Tileset.h" />
     <ClInclude Include="tinyxml2.h" />

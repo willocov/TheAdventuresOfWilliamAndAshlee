@@ -27,5 +27,6 @@ private:
 
 	MainMenu mainMenu;
 	LevelController level;
+	Player player;
 };
 

@@ -64,14 +64,16 @@ int GameController::GetNextLevelID() {
 
 void GameController::CheckAndHandleInput() {
     //Input Handling during gameplay
-    if (currentLevelID != 0) {
-        input.checkInput();
-    }
-    //Input handling on main menu screen
-    else {
-        //Main Menu / Title Screen is Active
-        input.checkInput_MainMenu(&mainMenu);
-    }
+    //if (currentLevelID != 0) {
+    //    input.checkInput();
+    //}
+    ////Input handling on main menu screen
+    //else {
+    //    //Main Menu / Title Screen is Active
+    //    input.checkInput_MainMenu(&mainMenu);
+    //}
+
+    input.checkInput(&player);
 
 
     return;
@@ -114,6 +116,16 @@ void GameController::DrawEverything(sf::RenderWindow* window) {
             }
         }
     }
+
+    //Draw the Player
+    sf::Texture playerTexture;
+    sf::Sprite playerSprite;
+    sf::CircleShape playerTest(50.f);
+    playerTest.setFillColor(sf::Color(150, 50, 250));
+    playerTest.setPosition(player.x, player.y);
+    window->draw(playerTest);
+
+
     return;
 }
 
