@@ -98,9 +98,9 @@ void LevelController::LoadLevel() {
 					std::string rawFileDataAsString(rawFileData);
 					int result = split(rawFileDataAsString, tempTileIDs, ',');
 
-					for (int i = 0; i < tempTileIDs.size(); i++) {
-						std::cout << tempTileIDs[i] << std::endl;
-					}
+					//for (int i = 0; i < tempTileIDs.size(); i++) {
+						//std::cout << tempTileIDs[i] << std::endl;
+					//}
 
 					layers.push_back(tempTileIDs);
 
