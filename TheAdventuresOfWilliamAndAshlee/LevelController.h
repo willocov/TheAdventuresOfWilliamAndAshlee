@@ -14,6 +14,13 @@ struct TileCoordinate {
 	int x, y, tileWidth, tileHeight;
 };
 
+struct Collision {
+	int id;	
+	float x, y, width, height; //Note: Consider changing these to ints and rounding up to simplify
+	Collision() { id = -1; x = y = width = height = 0; }
+	Collision(int _id, float _x, float _y, float _width, float _height) { id = _id; x = _x; y = _y; width = _width; height = _height; }
+};
+
 class LevelController
 {
 public:
@@ -22,6 +29,9 @@ public:
 	int split(const std::string& txt, std::vector<std::string>& strs, char ch);
 	string formatSourceString(string source);
 	int GetLastGid(int firstGid, int tileCount);
+
+	void SortCollisions();
+
 //private:
 	//Variables related to XML file data
 	int mapWidth;
@@ -44,5 +54,7 @@ public:
 
 	std::vector<std::string> tileIDs;
 	std::vector<std::vector<std::string>> layers;
+
+	std::vector<Collision> collisions;
 };
 

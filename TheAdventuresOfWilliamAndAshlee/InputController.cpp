@@ -1,25 +1,33 @@
 #include "InputController.h"
 
-void InputController::checkInput(Player* player) {
+void InputController::checkInput(Player* player, LevelController* level) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
         //cout << "Button Pressed: W" << endl;
-        player->MoveUp();
+        //Note: Consider combining this if statement with the parent if statement
+        if(!player->IsColliding(level, GLOBALS::DIRECTION::UP))
+            player->MoveUp();
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
         //cout << "Button Pressed: A" << endl;
-        player->MoveLeft();
+        if (!player->IsColliding(level, GLOBALS::DIRECTION::LEFT))
+            player->MoveLeft();
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
         //cout << "Button Pressed: S" << endl;
-        player->MoveDown();
+        if (!player->IsColliding(level, GLOBALS::DIRECTION::DOWN))
+            player->MoveDown();
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
         //cout << "Button Pressed: D" << endl;
-        player->MoveRight();
+        if (!player->IsColliding(level, GLOBALS::DIRECTION::RIGHT))
+            player->MoveRight();
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+        
     }
 }
 

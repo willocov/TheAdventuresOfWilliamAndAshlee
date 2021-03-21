@@ -1,7 +1,8 @@
 #include "LevelController.h"
 
 LevelController::LevelController() {
-	
+	tileHeight = 0;
+	tileWidth = 0;
 }
 
 int LevelController::split(const std::string& txt, std::vector<std::string>& strs, char ch) {
@@ -83,6 +84,43 @@ void LevelController::LoadLevel() {
 			}
 			
 			pTileset = pTileset->NextSiblingElement("tileset");
+		}
+	}
+
+	//Load Collisions
+	XMLElement* pCollisions = mapNode->FirstChildElement("objectgroup");
+	if (pCollisions != NULL) {
+		while (pCollisions) {	//Note: Adding additional object group layers will cause them to be read as collisions
+			XMLElement* pCollision = pCollisions->FirstChildElement("object");
+			if (pCollision != NULL) {
+				while (pCollision) {
+					Collision col;	//Collision objects
+
+					//Get the collision object properties
+					pCollision->QueryIntAttribute("id", &col.id);
+					pCollision->QueryFloatAttribute("x", &col.x);
+					pCollision->QueryFloatAttribute("y", &col.y);
+					pCollision->QueryFloatAttribute("width", &col.width);
+					pCollision->QueryFloatAttribute("height", &col.height);
+
+					if (col.x < 1)
+						col.x = 0;
+					if (col.y < 1)
+						col.y = 0;
+
+					//Add to Level Controllers collision stack
+					col.x *= GLOBALS::SPRITE_SCALE;
+					col.y *= GLOBALS::SPRITE_SCALE;
+					col.width *= GLOBALS::SPRITE_SCALE;
+					col.height *= GLOBALS::SPRITE_SCALE;
+
+					collisions.push_back(col);
+
+					pCollision = pCollision->NextSiblingElement("object");
+
+				}
+			}
+			pCollisions = pCollisions->NextSiblingElement("objectgroup");
 		}
 	}
 

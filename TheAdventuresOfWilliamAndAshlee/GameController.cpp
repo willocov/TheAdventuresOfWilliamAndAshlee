@@ -9,6 +9,8 @@ GameController::GameController() {
 void GameController::StartGame() {
 	//Launch the Window
 	sf::RenderWindow window(sf::VideoMode(1200, 1600), "SFML works!");  //Sample window test
+
+
     //std::vector<sf::VideoMode> i = sf::VideoMode::getFullscreenModes(); //Used to get most compatible fullscreen mode (Necessary for fullscreen mode
     //sf::RenderWindow window(i.front(), "SFML WORKS!", sf::Style::Fullscreen);   //Creates a full screen window
 
@@ -73,7 +75,7 @@ void GameController::CheckAndHandleInput() {
     //    input.checkInput_MainMenu(&mainMenu);
     //}
 
-    input.checkInput(&player);
+    input.checkInput(&player, &level);
 
 
     return;
@@ -120,10 +122,21 @@ void GameController::DrawEverything(sf::RenderWindow* window) {
     //Draw the Player
     sf::Texture playerTexture;
     sf::Sprite playerSprite;
-    sf::CircleShape playerTest(50.f);
+    sf::CircleShape playerTest(25.f);
     playerTest.setFillColor(sf::Color(150, 50, 250));
     playerTest.setPosition(player.x, player.y);
     window->draw(playerTest);
+
+
+    //Test code for drawing collision boundary
+    //sf::RectangleShape rectangle;
+    //rectangle.setSize(sf::Vector2f(125, 71));
+    //rectangle.setOutlineColor(sf::Color::Red);
+    //rectangle.setOutlineThickness(5);
+    //rectangle.setPosition(0 * GLOBALS::SPRITE_SCALE, 190 * GLOBALS::SPRITE_SCALE);
+    //rectangle.setScale(sf::Vector2f(GLOBALS::SPRITE_SCALE, GLOBALS::SPRITE_SCALE));
+    //window->draw(rectangle);
+
 
 
     return;

@@ -2,6 +2,9 @@
 
 #include<SFML/Graphics.hpp>
 #include "Globals.h"
+#include "LevelController.h"
+#include <iostream>
+
 class Player
 {
 public:
@@ -11,7 +14,9 @@ public:
 	void MoveLeft();
 	void MoveRight();
 
-	int x, y;
+	bool IsColliding(LevelController* level, GLOBALS::DIRECTION direction);
+
+	float x, y;
 
 };
 
