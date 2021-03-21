@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="5">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="6">
  <tileset firstgid="1" source="Terrains_TILESET_B-C-D-E.tsx"/>
  <tileset firstgid="2305" source="Outside_Stuff_TILESET_B-C-D-E.tsx"/>
  <objectgroup id="4" name="Collisions">
   <object id="2" x="0.729095" y="192.117" width="126.68" height="71.4514"/>
   <object id="3" x="224.197" y="192.299" width="95.3292" height="69.6286"/>
   <object id="4" x="0.911369" y="80.2005" width="318.25" height="53.5885"/>
+ </objectgroup>
+ <objectgroup id="5" name="Spawns">
+  <object id="5" name="PlayerSpawn" x="175.25" y="177.25">
+   <point/>
+  </object>
  </objectgroup>
  <layer id="1" name="Tile Layer 1" width="20" height="20">
   <data encoding="csv">

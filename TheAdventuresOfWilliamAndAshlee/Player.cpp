@@ -1,9 +1,14 @@
 #include "Player.h"
 
 Player::Player() {
-	//Player Spawn Location
 	x = 100;
 	y = 100;
+}
+
+Player::Player(float _x, float _y) {
+	//Player Spawn Location
+	x = _x;
+	y = _y;
 }
 
 void Player::MoveUp() {

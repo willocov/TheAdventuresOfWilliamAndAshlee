@@ -87,40 +87,62 @@ void LevelController::LoadLevel() {
 		}
 	}
 
-	//Load Collisions
-	XMLElement* pCollisions = mapNode->FirstChildElement("objectgroup");
-	if (pCollisions != NULL) {
-		while (pCollisions) {	//Note: Adding additional object group layers will cause them to be read as collisions
-			XMLElement* pCollision = pCollisions->FirstChildElement("object");
-			if (pCollision != NULL) {
-				while (pCollision) {
-					Collision col;	//Collision objects
+	//Load Collisions and Spawns
+	XMLElement* pObjectGroup = mapNode->FirstChildElement("objectgroup");
+	if (pObjectGroup != NULL) {
+		while (pObjectGroup) {	//Note: Adding additional object group layers will cause them to be read as collisions
+			string objectGroupName = pObjectGroup->Attribute("name");
 
-					//Get the collision object properties
-					pCollision->QueryIntAttribute("id", &col.id);
-					pCollision->QueryFloatAttribute("x", &col.x);
-					pCollision->QueryFloatAttribute("y", &col.y);
-					pCollision->QueryFloatAttribute("width", &col.width);
-					pCollision->QueryFloatAttribute("height", &col.height);
+			//Check for Collisions
+			if (objectGroupName == "Collisions")
+			{
+				XMLElement* pCollision = pObjectGroup->FirstChildElement("object");
+				if (pCollision != NULL) {
+					while (pCollision) {
+						Collision col;	//Collision objects
 
-					if (col.x < 1)
-						col.x = 0;
-					if (col.y < 1)
-						col.y = 0;
+						//Get the collision object properties
+						pCollision->QueryIntAttribute("id", &col.id);
+						pCollision->QueryFloatAttribute("x", &col.x);
+						pCollision->QueryFloatAttribute("y", &col.y);
+						pCollision->QueryFloatAttribute("width", &col.width);
+						pCollision->QueryFloatAttribute("height", &col.height);
 
-					//Add to Level Controllers collision stack
-					col.x *= GLOBALS::SPRITE_SCALE;
-					col.y *= GLOBALS::SPRITE_SCALE;
-					col.width *= GLOBALS::SPRITE_SCALE;
-					col.height *= GLOBALS::SPRITE_SCALE;
+						if (col.x < 1)
+							col.x = 0;
+						if (col.y < 1)
+							col.y = 0;
 
-					collisions.push_back(col);
+						//Add to Level Controllers collision stack
+						col.x *= GLOBALS::SPRITE_SCALE;
+						col.y *= GLOBALS::SPRITE_SCALE;
+						col.width *= GLOBALS::SPRITE_SCALE;
+						col.height *= GLOBALS::SPRITE_SCALE;
 
-					pCollision = pCollision->NextSiblingElement("object");
+						collisions.push_back(col);
 
+						pCollision = pCollision->NextSiblingElement("object");
+
+					}
 				}
 			}
-			pCollisions = pCollisions->NextSiblingElement("objectgroup");
+			else if (objectGroupName == "Spawns")
+			{
+				XMLElement* pSpawn = pObjectGroup->FirstChildElement("object");
+				if (pSpawn != NULL) {
+					while (pSpawn) {
+						string spawnName = pSpawn->Attribute("name");
+						if (spawnName == "PlayerSpawn") {
+							pSpawn->QueryFloatAttribute("x", &playerSpawnX);
+							pSpawn->QueryFloatAttribute("y", &playerSpawnY);
+						}
+
+						pSpawn = pSpawn->NextSiblingElement("object");
+					}
+				}
+
+			}
+			pObjectGroup = pObjectGroup->NextSiblingElement("objectgroup");
 		}
 	}
 

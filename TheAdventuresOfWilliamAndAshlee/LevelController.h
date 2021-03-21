@@ -40,6 +40,7 @@ public:
 	int tileWidth;
 	int tileHeight;
 
+	float playerSpawnX, playerSpawnY;
 
 	int firstGid;
 	const char* source;
@@ -56,5 +57,7 @@ public:
 	std::vector<std::vector<std::string>> layers;
 
 	std::vector<Collision> collisions;
+
+
 };
 

@@ -9,6 +9,7 @@ class Player
 {
 public:
 	Player();
+	Player(float _x, float _y);
 	void MoveUp();
 	void MoveDown();
 	void MoveLeft();

@@ -15,7 +15,7 @@ void GameController::StartGame() {
     //sf::RenderWindow window(i.front(), "SFML WORKS!", sf::Style::Fullscreen);   //Creates a full screen window
 
 
-    window.setFramerateLimit(60);
+    //window.setFramerateLimit(60);
     
     //Game Loop
     while (window.isOpen())
@@ -52,6 +52,8 @@ bool GameController::IsALevelLoaded() {
 void GameController::LoadLevel() {
     //Placeholder function, add code later
     level.LoadLevel();
+    player.x = level.playerSpawnX * GLOBALS::SPRITE_SCALE;
+    player.y = level.playerSpawnY * GLOBALS::SPRITE_SCALE;
     return;
 }
 
